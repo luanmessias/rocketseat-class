@@ -79,7 +79,6 @@ const Dashboard: React.FC = () => {
           <Link
             key={repository.full_name}
             to={`/repository/${repository.full_name}`}
-            target="_blank"
             rel="noopener noreferrer"
           >
             <img
