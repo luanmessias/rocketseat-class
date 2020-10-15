@@ -1,14 +1,37 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { shade } from 'polished';
 
 import signUpBackgroundImg from '../../assets/sign-up-background.png';
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px)
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 export const Container = styled.div`
   height: 100vh;
   display: flex;
   align-items: stretch;
 `;
-export const Content = styled.div`
+
+export const AnimationContainer = styled.div`
   display: flex;
   flex-direction: column;
   place-content: center;
@@ -37,6 +60,14 @@ export const Content = styled.div`
       }
     }
   }
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  align-items: center;
+  animation: ${appearFromRight} 1s;
 
   > a {
     color: #f4ede8;
@@ -55,8 +86,10 @@ export const Content = styled.div`
     }
   }
 `;
+
 export const Background = styled.div`
   flex: 1;
   background: url(${signUpBackgroundImg}) no-repeat center;
   background-size: cover;
+  animation: ${appearFromLeft} 1s;
 `;
