@@ -1,13 +1,9 @@
-import React from 'react'
-import Reac from 'react-test-renderer'
+import React from 'react';
 
-import { Container } from './styles'
-
+import { Container } from './styles';
 
 const SignIn: React.FC = () => {
-  return (
-    <Container></Container>
-  )
-}
+  return <Container />;
+};
 
-export default SignIn
+export default SignIn;
