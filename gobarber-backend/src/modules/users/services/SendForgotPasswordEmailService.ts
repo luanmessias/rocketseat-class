@@ -25,6 +25,13 @@ class SendForgotPasswordEmailService {
   ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
+    const checkUserexists = await this.usersRepository.findByEmail(email);
+
+    if (!checkUserexists) {
+      throw new AppError('User does not exists.');
+    }
+
+    await this.userTokensRepository.generate(checkUserexists.id);
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
