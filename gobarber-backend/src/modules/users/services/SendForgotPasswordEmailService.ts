@@ -26,6 +26,9 @@ class SendForgotPasswordEmailService {
 
   public async execute({ email }: IRequest): Promise<void> {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> e51f22e3e196f09c8fc467014535803730a21424
     const checkUserexists = await this.usersRepository.findByEmail(email);
 
     if (!checkUserexists) {
@@ -33,6 +36,7 @@ class SendForgotPasswordEmailService {
     }
 
     await this.userTokensRepository.generate(checkUserexists.id);
+<<<<<<< HEAD
 =======
     const user = await this.usersRepository.findByEmail(email);
 
@@ -42,6 +46,8 @@ class SendForgotPasswordEmailService {
 
     await this.userTokensRepository.generate(user.id);
 >>>>>>> Password recover tests class
+=======
+>>>>>>> e51f22e3e196f09c8fc467014535803730a21424
 
     this.mailProvider.sendMail(
       email,
