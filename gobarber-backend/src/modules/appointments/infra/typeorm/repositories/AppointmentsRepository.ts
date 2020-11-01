@@ -1,10 +1,11 @@
 import { getRepository, Raw, Repository } from 'typeorm';
-import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
 
 import IAppoitnemtsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO';
 import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO';
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO ';
+
+import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
 
 class AppointmentRepository implements IAppoitnemtsRepository {
   private ormRepository: Repository<Appointment>;
@@ -33,7 +34,7 @@ class AppointmentRepository implements IAppoitnemtsRepository {
         provider_id,
         date: Raw(
           dateFieldName =>
-            `to_char(${dateFieldName}, 'MM-YYYY) = '${parsedMonth}-${year}'`,
+            `to_char(${dateFieldName}, 'MM-YYYY') = '${parsedMonth}-${year}'`,
         ),
       },
     });
@@ -55,7 +56,7 @@ class AppointmentRepository implements IAppoitnemtsRepository {
         provider_id,
         date: Raw(
           dateFieldName =>
-            `to_char(${dateFieldName}, 'DD-MM-YYYY) = '${parsedDay}-${parsedMonth}-${year}'`,
+            `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}-${year}'`,
         ),
       },
     });
