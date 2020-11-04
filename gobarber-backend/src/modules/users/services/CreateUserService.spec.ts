@@ -27,14 +27,14 @@ describe('CreateUser', () => {
 
   it('should not be able to create a duplicated user', async () => {
     await createUser.execute({
-      name: 'Jhon Doe',
+      name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
     });
 
     await expect(
       createUser.execute({
-        name: 'Jhon Doe',
+        name: 'John Doe',
         email: 'johndoe@example.com',
         password: '123456',
       }),
