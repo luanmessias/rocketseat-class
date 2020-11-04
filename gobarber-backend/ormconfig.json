@@ -14,7 +14,7 @@
       "./src/shared/infra/typeorm/migrations/*.ts"
     ],
     "cli": {
-      "migrationsDir":"./src/shared/infra/typeorm/migrations"
+      "migrationsDir": "./src/shared/infra/typeorm/migrations"
     }
   },
   {
@@ -22,12 +22,10 @@
     "type": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "userUnifiedTopology": true,
-    "database": "gostack_gobarber",
+    "database": "gobarber",
+    "useUnifiedTopology": true,
     "entities": [
       "./src/modules/**/infra/typeorm/schemas/*.ts"
     ]
   }
-
 ]
-
