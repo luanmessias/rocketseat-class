@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { getHours, isBefore, startOfHour, format } from 'date-fns';
 import { inject, injectable } from 'tsyringe';
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
