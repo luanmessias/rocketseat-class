@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import { Request, Response } from 'express';
 import { parseISO } from 'date-fns';
 import { container } from 'tsyringe';

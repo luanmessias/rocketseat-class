@@ -11,14 +11,15 @@
     "test": "jest"
   },
   "dependencies": {
-    "mongodb": "^3.6.2",
     "bcryptjs": "^2.4.3",
+    "celebrate": "^13.0.3",
     "cors": "^2.8.5",
     "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "handlebars": "^4.7.6",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.2",
     "multer": "^1.4.2",
     "nodemailer": "^6.4.14",
     "pg": "^8.3.3",
