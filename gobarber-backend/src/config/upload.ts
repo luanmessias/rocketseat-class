@@ -6,11 +6,11 @@ import fs from 'fs';
 const tmpFolder = path.resolve(__dirname, '..', '..', 'tmp');
 const uploadsFolder = path.resolve(tmpFolder, 'uploads');
 
-if(!fs.existsSync(tmpFolder)){
+if (!fs.existsSync(tmpFolder)) {
   fs.mkdirSync(tmpFolder);
 }
 
-if(!fs.existsSync(uploadsFolder)){
+if (!fs.existsSync(uploadsFolder)) {
   fs.mkdirSync(uploadsFolder);
 }
 
