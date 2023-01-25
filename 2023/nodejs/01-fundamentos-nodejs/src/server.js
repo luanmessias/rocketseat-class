@@ -1,31 +1,30 @@
-import http from 'http'
+import http from "http"
+import { json } from "./middlewares/json.js"
 
 const users = []
 
-const server = http.createServer((req, res) => {
-
+const server = http.createServer(async (req, res) => {
   const { method, url } = req
 
-  if(method === 'GET' && url === '/users') {
-    return res
-      .setHeader('Content-Type', 'application/json')
-      .end(JSON.stringify(users))
+  await json(req, res)
+
+  if (method === "GET" && url === "/users") {
+    return res.end(JSON.stringify(users))
   }
 
-  if(method === 'POST' && url === '/users') {
+  if (method === "POST" && url === "/users") {
+    const { name, email } = req.body
 
     users.push({
       id: 1,
-      name: 'Diego',
-      email: 'johndoe@doe.com'
+      name,
+      email,
     })
 
-    return res.writeHead(201).end('User created')
+    return res.writeHead(201).end("User created")
   }
 
-
-
-  res.writeHead(404).end('Not Found')
+  res.writeHead(404).end("Not Found")
 })
 
 server.listen(3333)
