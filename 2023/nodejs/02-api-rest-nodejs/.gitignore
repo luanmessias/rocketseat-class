@@ -25,6 +25,8 @@ dist-ssr
 
 
 #custom 
-db/*
+node_modules
+db/*.db
 .env
 .env.test
+build
